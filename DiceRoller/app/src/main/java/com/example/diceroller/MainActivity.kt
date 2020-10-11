@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private fun rollDice() {
         /* Toast.makeText(this, "button clicked",
             Toast.LENGTH_SHORT).show() */
+        
         val randomInt = (1..6).random()
 
         val resultText: TextView = findViewById(R.id.result_text)
@@ -48,9 +49,9 @@ class MainActivity : AppCompatActivity() {
     private fun resetDice() {
         val resultText: TextView = findViewById(R.id.result_text)
 
+        // If text is not default "Hello World!" set that text to 0
         if (resultText.text != "Hello World!") {
             resultText.text = "0"
         }
-
     }
 }
