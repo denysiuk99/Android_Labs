@@ -41,6 +41,7 @@ class GameWonFragment : Fragment() {
         setHasOptionsMenu(true)
         return binding.root
     }
+
     private fun getShareIntent() : Intent {
         val args = GameWonFragmentArgs.fromBundle(requireArguments())
         val shareIntent = Intent(Intent.ACTION_SEND)
@@ -48,9 +49,11 @@ class GameWonFragment : Fragment() {
                 .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_success_text, args.numCorrect, args.numQuestions))
         return shareIntent
     }
+
     private fun shareSuccess() {
         startActivity(getShareIntent())
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.winner_menu, menu)
@@ -58,6 +61,7 @@ class GameWonFragment : Fragment() {
             menu.findItem(R.id.share).isVisible = false
         }
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.share -> shareSuccess()
